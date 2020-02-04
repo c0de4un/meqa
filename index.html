@@ -1,8 +1,44 @@
 <html>
-  <body>
+  <body onload="initForm();" align="center">
 	<script type="text/javascript" src="src/js/main.js"></script>
 	<noscript><h1>Ваш браузер не разрешает выполнение сценариев JavaScript !</h1></noscript>
 	<input type="button" onclick="showAbout();" name="about_btn" value="?" />
 	<input type="button" onclick="showRandomQuestion();" name="rand_question" value="Случайный вопрос" />
+	<br />
+	<hr />
+	<!-- Test-Form -->
+	<div id="table_root" width="640" height="480">
+	
+	<table align="center">
+		<tr>
+			<td>
+				<div id="exam_form_div">
+					<input type="button" onclick="startExam();" name="startExam_btn" value="Начать" />
+					<i id="timeElapsed_label">Осталось времени: </i>
+					<br />
+					<b id="questionLabel">Вопрос</b>
+					<br />
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<input type="radio" onclick="onAnswerSelected(0);" id="answer_btn_1" value="1"><i id="answer_1_Label">Ответ #1</i></input>
+					<br />
+					<input type="radio" onclick="onAnswerSelected(1);" id="answer_btn_2" value="2"><i id="answer_2_Label">Ответ #2</i></input>
+					<br />
+					<input type="radio" onclick="onAnswerSelected(2);" id="answer_btn_3" value="3"><i id="answer_3_Label">Ответ #3</i></input>
+					<br />
+					<input type="button" onclick="nextQuestion();" id="nextQuestion_btn" value=">>" />
+					<p id="resultLabel">
+					Результат:
+					</p>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	</div>
   </body>
 </html>
