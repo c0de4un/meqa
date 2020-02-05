@@ -663,14 +663,15 @@ function updateQuestionLabel() {
 	document.getElementById('questionLabel').innerHTML = question_["title"];
 }
 
-function getQuestionIndex(usedQuestions) {
+function getQuestionIndex(usedQuestions, ignoreIdxsList) {
 	
 	var questionIdx = getRandomInt(0, questionsNum - 1);
 	
-	while( usedQuestions.indexOf( questionIdx ) != -1 ) {
+	while( ignoreIdxsList.indexOf( questionIdx ) != -1 ) {
 		questionIdx = getRandomInt(0, questionsNum - 1);
 	}
 	
+	ignoreIdxsList.push( questionIdx );
 	return questionIdx;
 	
 }
@@ -678,10 +679,11 @@ function getQuestionIndex(usedQuestions) {
 function fillQuestionsList() {
 	
 	var questionsList = [];
+	var ignoreIdxsList = [];
 	
 	for( var i = 0; i < questionsNum; i++ ) {
 		
-		questionsList.push( gQuestions[getQuestionIndex(questionsList)] );
+		questionsList.push( gQuestions[getQuestionIndex(questionsList, ignoreIdxsList)] );
 		
 	}
 	
