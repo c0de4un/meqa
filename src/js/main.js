@@ -645,7 +645,7 @@ function fillQuestions() {
 		var answer_ = answersList_[questionIdxs_[i]];
 		radioBtn_.innerHTML = answer_["title"];
 		
-		if ( question_["isRight"] ) {
+		if ( question_["isRight"] == true ) {
 			
 			exam["rightAnswerIdx"] = i;
 			
